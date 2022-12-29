@@ -7,6 +7,7 @@ const posts = async (req, res) => {
     res.status(200).json(savePost);
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 };
 exports.posts = posts;
