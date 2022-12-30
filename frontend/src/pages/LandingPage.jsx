@@ -27,7 +27,7 @@ const icon = [
 const LandingPage = () => {
   return (
     <>
-      <body class="flex flex-col min-h-screen">
+      <body class="flex flex-col mt-24">
         <Navbar />
         <div className="bg-[#EDF3F5]  w-full-width h-[600px]">
           <section className="grid  grid-cols-1 md:grid-cols-2 ">

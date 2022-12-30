@@ -3,8 +3,8 @@ import { AiFillInstagram, AiFillFacebook } from "react-icons/ai";
 import { FaSnapchat } from "react-icons/fa";
 const Footer = () => {
   return (
-    <div className="bg-[#EDF3F5]">
-      <div className=" flex  h-[250px] max-w-[900px] mx-auto  px-4  justify-around py-10 font-semibold ">
+    <footer className="bg-[#EDF3F5]">
+      <div className=" md:flex  h-[250px] max-w-[900px] mx-32 md:mx-auto  px-4  md:justify-around py-10 font-semibold ">
         <ul>
           <li>About us</li>
           <li>Contact us</li>
@@ -20,7 +20,7 @@ const Footer = () => {
           <li>Report</li>
         </ul>
         <div></div>
-        <ul className="flex px-10 justify-between w-64">
+        <ul className="md:flex hidden  justify-between w-64">
           <li>
             <h1 className="font-bold">Follow us</h1>
           </li>
@@ -29,7 +29,6 @@ const Footer = () => {
             <AiFillInstagram className="text-[30px]" />
           </li>
           <li>
-            {" "}
             <AiFillFacebook className="text-[30px]" />
           </li>
           <li>
@@ -37,7 +36,10 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-    </div>
+      <h1 className="flex items-center justify-center  font-medium">
+        Talent link limited © 2023 copyright
+      </h1>
+    </footer>
   );
 };
 

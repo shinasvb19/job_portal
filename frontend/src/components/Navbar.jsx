@@ -7,7 +7,7 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="bg-[#EDF3F5]">
+    <div className="bg-[#EDF3F5] fixed top-0 z-50 w-full">
       <div className="flex items-center h-24 max-w-[1350px] mx-auto  px-4 justify-between">
         <h1 className="w-full text-3xl font-bold">Dream</h1>
         <ul className="hidden md:flex">
