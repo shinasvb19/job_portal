@@ -3,15 +3,18 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import NotificationCard from "../components/posts/NotificationCard";
 import PostCard from "../components/posts/PostCard";
+import PostElement from "../components/posts/PostElement";
 import ProfileCard from "../components/posts/ProfileCard";
 
 const PostsPage = () => {
   return (
     <div className="mt-32 md:mt-0">
       <Navbar />
-      <div className="grid  grid-cols-1 lg:grid-cols-3 mt-8 max-w-[1200px] mx-auto">
+      <div className="grid  grid-cols-1 lg:grid-cols-3 mt-8 max-w-[1300px] mx-auto">
         <ProfileCard />
         <div className="mt-32">
+          <PostElement />
+
           <PostCard />
           <PostCard />
           <PostCard />

@@ -4,9 +4,9 @@ import { FaShareAlt } from "react-icons/fa";
 const PostCard = () => {
   return (
     <>
-      <div className="bg-[#FFFFFF] flex flex-col shrink px-8 h-[650px] mb-10 min-w-[350px] py-8 max-w-[400px] mx-auto shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]     rounded-lg ">
+      <div className="bg-[#FFFFFF] flex flex-col shrink px-8 min-h-[650px] h-auto mb-10 min-w-[300px] py-8 max-w-[450px] mx-auto shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]     rounded-lg ">
         <div className="flex">
-          <div className="mr-8 w-[50px] h-[50px] bg-[url('https://picsum.photos/200/300')] rounded-md bg-cover"></div>
+          <div className="mr-8 w-[50px] h-[50px] bg-[url('https://picsum.photos/200/300')] rounded-md bg-contain"></div>
           <div>
             <h1 className="font-bold text-lg">Amazon web service(aws)</h1>
             <h1 className="font-normal text-xs">75,000 Followers</h1>
