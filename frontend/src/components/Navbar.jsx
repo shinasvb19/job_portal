@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate("/signup");
+  };
   const [nav, setNav] = useState(true);
 
   const handleNav = () => {
@@ -15,8 +20,19 @@ const Navbar = () => {
           <li className="p-6">Profile</li>
           <li className="p-6">Posts</li>
           <li className="p-6">Contact</li>
-          <li className="p-6">Signin</li>
-          <button className="p-6 bg-[#212A2D] text-white rounded-2xl w-40 ">
+          <li className="p-6">
+            <button
+              onClick={() => {
+                navigate("/signin");
+              }}
+            >
+              Signin
+            </button>
+          </li>
+          <button
+            onClick={handleSubmit}
+            className=" bg-[#212A2D] mt-4 h-12 text-white rounded-2xl w-40 "
+          >
             sign up
           </button>
         </ul>
@@ -41,8 +57,10 @@ const Navbar = () => {
             <li className="p-6 border-b border-gray-400">Profile</li>
             <li className="p-6 border-b border-gray-400">Posts</li>
             <li className="p-6 border-b border-gray-400">Contact</li>
-            <li className="p-6 border-b border-gray-400">Signin</li>
-            <li className="p-6  w-60 ">sign up</li>
+            <li className="p-6 border-b border-gray-400"></li>
+            <li onClick={handleSubmit} className="p-6  w-60 ">
+              sign up
+            </li>
           </ul>
         </div>
       </div>
