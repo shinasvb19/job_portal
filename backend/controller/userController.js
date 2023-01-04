@@ -42,6 +42,7 @@ const signin = async (req, res) => {
       user.password
     );
     !validPassword && res.status(400).json("invalid credential");
+
     res.status(200).json(user);
   } catch (err) {
     console.log(err);

@@ -115,6 +115,7 @@ const SignUp = () => {
   };
 
   const onHandleSubmit = (e) => {
+    const user = { email, name, mobile, password };
     e.preventDefault();
     nameCheck();
     passwordCheck();
@@ -126,8 +127,8 @@ const SignUp = () => {
       mobileCheck() &&
       password === verifyPassword
     ) {
-      console.log(validation);
-      console.log("wow");
+      const response = axios.post("http://localhost:5000/register", user);
+      console.log(response.data);
     }
   };
 
