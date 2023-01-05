@@ -27,7 +27,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       const userData = await login({ email, password }).unwrap();
-      console.log(userData);
+
       dispatch(setCredentials({ ...userData, email }));
       SetEmail("");
       SetPassword("");
@@ -71,6 +71,7 @@ const SignIn = () => {
                 type="password"
                 className="w-[100%] h-[100%] focus:outline-0 text-clip"
                 placeholder="password"
+                profile
                 value={password}
                 onChange={(e) => {
                   SetPassword(e.target.value);

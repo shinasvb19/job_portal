@@ -8,7 +8,6 @@ const authSlice = createSlice({
   },
   reducers: {
     setCredentials: (state, action) => {
-      console.log("wow redex");
       const { email, accessToken } = action.payload;
       state.email = email;
       state.token = accessToken;

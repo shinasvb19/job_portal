@@ -26,10 +26,10 @@ const handleLogin = async (req, res) => {
         },
       },
       "abcd1234",
-      { expiresIn: "1000s" }
+      { expiresIn: "10s" }
     );
     const newRefreshToken = jwt.sign({ email: foundUser.email }, "abcd1234", {
-      expiresIn: "600s",
+      expiresIn: "15s",
     });
 
     // Changed to let keyword
