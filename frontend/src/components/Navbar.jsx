@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../features/auth/authSlice";
 const Navbar = () => {
   const navigate = useNavigate();
   const handleSubmit = () => {
     navigate("/signup");
   };
   const [nav, setNav] = useState(true);
-
+  const user = useSelector(selectCurrentUser);
+  // console.log("sdsdd", user);
   const handleNav = () => {
     setNav(!nav);
   };
@@ -16,9 +19,16 @@ const Navbar = () => {
       <div className="flex items-center h-24 max-w-[1350px] mx-auto  px-4 justify-between">
         <h1 className="w-full text-3xl font-bold">Dream</h1>
         <ul className="hidden md:flex">
-          <li className="p-6">Jobs</li>
-          <li className="p-6">Profile</li>
-          <li className="p-6">Posts</li>
+          <li className="p-6">
+            <Link to="/posts">posts</Link>
+          </li>
+          <li className="p-6">
+            <Link to="/jobs">jobs</Link>
+          </li>
+          <li className="p-6">
+            <Link to="/profile">Profile</Link>
+          </li>
+
           <li className="p-6">Contact</li>
           <li className="p-6">
             <button
