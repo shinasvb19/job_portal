@@ -90,7 +90,7 @@ const removeAccount = async (req, res) => {
   }
 };
 exports.removeAccount = removeAccount;
-
+console.log("clikkkekekekkdkdk");
 const userGet = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);

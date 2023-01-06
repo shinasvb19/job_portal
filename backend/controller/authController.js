@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const handleLogin = async (req, res) => {
   const cookies = req.cookies;
 
-  console.log(req.body);
+  // console.log(req.body);
   const { email, password } = req.body;
   if (!email || !password)
     return res
@@ -12,24 +12,28 @@ const handleLogin = async (req, res) => {
       .json({ message: "Username and password are required." });
 
   const foundUser = await User.findOne({ email }).exec();
+  console.log(foundUser);
+  const id = foundUser.id;
   if (!foundUser) return res.sendStatus(401); //Unauthorized
   // evaluate password
   const match = await bcrypt.compare(password, foundUser.password);
   if (match) {
     // const roles = Object.values(foundUser.roles).filter(Boolean);
     // create JWTs
+
     const accessToken = jwt.sign(
       {
         UserInfo: {
-          email: foundUser.email,
+          id: foundUser.id,
           // roles: roles,
         },
       },
       "abcd1234",
-      { expiresIn: "10s" }
+      { expiresIn: "15m" }
     );
-    const newRefreshToken = jwt.sign({ email: foundUser.email }, "abcd1234", {
-      expiresIn: "15s",
+    console.log(accessToken);
+    const newRefreshToken = jwt.sign({ id: foundUser.id }, "abcd1234", {
+      expiresIn: "1d",
     });
 
     // Changed to let keyword
@@ -73,7 +77,7 @@ const handleLogin = async (req, res) => {
     });
 
     // Send authorization roles and access token to user
-    res.json({ accessToken });
+    res.json({ accessToken, id });
   } else {
     res.sendStatus(401);
   }

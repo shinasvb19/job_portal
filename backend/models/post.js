@@ -14,12 +14,10 @@ const postSchema = new Schema(
       trim: true,
     },
 
-    img: [
-      {
-        filename: { type: String },
-        ulr: { type: String },
-      },
-    ],
+    url: {
+      type: String,
+    },
+
     likes: {
       type: Array,
       default: [],

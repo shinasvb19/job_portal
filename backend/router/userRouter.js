@@ -7,7 +7,7 @@ router.post("/register", userController.register);
 router.post("/signin", userController.signin);
 router.put("/:id", userController.userUpdate);
 router.delete("/:id", userController.removeAccount);
-router.get("/:id", userController.userGet);
+router.get("/users", userController.userGet);
 router.get("/follow/:id", userController.followUser);
 router.get("/unfollow/:id", userController.unFollow);
 module.exports = router;
