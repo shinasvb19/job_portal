@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../features/auth/authSlice";
+import {
+  selectCurrentToken,
+  selectCurrentUser,
+} from "../features/auth/authSlice";
+import { useDispatch } from "react-redux";
+import { logOut } from "../features/auth/authSlice";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -11,7 +16,7 @@ const Navbar = () => {
   };
   const [nav, setNav] = useState(true);
   const user = useSelector(selectCurrentUser);
-
+  const dispatch = useDispatch();
   const handleNav = () => {
     setNav(!nav);
   };
@@ -32,13 +37,23 @@ const Navbar = () => {
 
           <li className="p-6">Contact</li>
           <li className="p-6">
-            <button
-              onClick={() => {
-                navigate("/signin");
-              }}
-            >
-              Signin
-            </button>
+            {user ? (
+              <button
+                onClick={(e) => {
+                  dispatch(logOut());
+                }}
+              >
+                logout
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  navigate("/signin");
+                }}
+              >
+                signin
+              </button>
+            )}
           </li>
           <button
             onClick={handleSubmit}
