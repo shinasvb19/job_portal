@@ -3,6 +3,7 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../features/auth/authSlice";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const handleSubmit = () => {
@@ -10,7 +11,7 @@ const Navbar = () => {
   };
   const [nav, setNav] = useState(true);
   const user = useSelector(selectCurrentUser);
-  // console.log("sdsdd", user);
+
   const handleNav = () => {
     setNav(!nav);
   };
