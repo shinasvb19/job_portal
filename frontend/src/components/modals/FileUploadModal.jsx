@@ -45,9 +45,9 @@ const FileUploadModal = ({ open, onClose }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.url);
-        // const id = userDetails._id;
-        console.log(id);
+        // console.log(data.url);
+        // // const id = userDetails._id;
+        // console.log(id);
         const url = data.url;
         fetch(`http://localhost:5000/post/${id}`, {
           method: "POST",
@@ -61,7 +61,10 @@ const FileUploadModal = ({ open, onClose }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            onClose();
+            resetShare();
+            open.updateEvent();
+            SetDesc("");
           });
       })
       .catch((err) => console.log(err));
@@ -69,7 +72,8 @@ const FileUploadModal = ({ open, onClose }) => {
   const resetShare = () => {
     SetImage(null);
   };
-  if (!open) return null;
+
+  if (!open.open) return null;
   return (
     <>
       <div style={overlay_style}>
@@ -94,9 +98,13 @@ const FileUploadModal = ({ open, onClose }) => {
           />
           <div className="w-[400px] h-[350px] flex  border-zinc-300 border-2 rounded-2xl items-center justify-center">
             {image ? (
-              <div className="previewImage w-[370px] h-[320px]">
+              <div
+                className="previewImage w-[370px] h-[320px] bg-contain bg-center bg-no-repeat "
+                style={{
+                  backgroundImage: `url(${URL.createObjectURL(image)})`,
+                }}
+              >
                 <FaTimes onClick={resetShare} />
-                <img src={URL.createObjectURL(image)} alt="preview" />
               </div>
             ) : (
               <div

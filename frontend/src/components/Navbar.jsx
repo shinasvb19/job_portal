@@ -39,6 +39,7 @@ const Navbar = () => {
           <li className="p-6">
             {user ? (
               <button
+                className="bg-[#212A2D] h-8  text-white rounded-2xl w-32 "
                 onClick={(e) => {
                   dispatch(logOut());
                 }}
@@ -55,12 +56,14 @@ const Navbar = () => {
               </button>
             )}
           </li>
-          <button
-            onClick={handleSubmit}
-            className=" bg-[#212A2D] mt-4 h-12 text-white rounded-2xl w-40 "
-          >
-            sign up
-          </button>
+          {!user && (
+            <button
+              onClick={handleSubmit}
+              className=" bg-[#212A2D] mt-4 h-12 text-white rounded-2xl w-40 "
+            >
+              sign up
+            </button>
+          )}
         </ul>
 
         <div onClick={handleNav} className="block md:hidden">
